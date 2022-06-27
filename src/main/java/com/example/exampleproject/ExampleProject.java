@@ -1,5 +1,7 @@
-package com.example.ExampleProject;
+package com.example.exampleproject;
 
+import com.example.exampleproject.cmds.ExampleProjectCommands;
+import com.example.exampleproject.listeners.EventListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ExampleProject extends JavaPlugin {
@@ -13,8 +15,8 @@ public class ExampleProject extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        //getServer().getPluginManager().registerEvents(new Listener(), this);
-        //this.getCommand("exampleproject").setExecutor(new ExampleProjectCommands());
+        getServer().getPluginManager().registerEvents(new EventListener(), this);
+        getCommand("exampleproject").setExecutor(new ExampleProjectCommands());
     }
 
     @Override
@@ -25,4 +27,5 @@ public class ExampleProject extends JavaPlugin {
     public static ExampleProject inst() {
         return inst;
     }
+
 }
